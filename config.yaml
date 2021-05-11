@@ -141,7 +141,7 @@ jobs:
   
   size: 32
   bitfield: true
-  threads: 12
+  threads: 10
   buckets: 128
   memory_buffer: 5722
   max_concurrent: 4
