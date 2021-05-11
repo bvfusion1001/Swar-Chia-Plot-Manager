@@ -3,7 +3,7 @@
 # WINDOWS EXAMPLE: C:\Users\Swar\AppData\Local\chia-blockchain\app-1.1.2\resources\app.asar.unpacked\daemon\chia.exe
 #   LINUX EXAMPLE: /usr/lib/chia-blockchain/resources/app.asar.unpacked/daemon/chia
 #  LINUX2 EXAMPLE: /home/swar/chia-blockchain/venv/bin/chia
-chia_location: C:\Users\b\AppData\Local\chia-blockchain\app-1.1.4\resources\app.asar.unpacked\daemon\chia.exe
+chia_location: C:\Users\b\AppData\Local\chia-blockchain\app-1.1.5\resources\app.asar.unpacked\daemon\chia.exe
 
 
 manager:
