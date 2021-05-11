@@ -132,23 +132,23 @@ jobs:
   #                              These two directories will be in sync so that they will always be submitted as the
   #                              same value.
 
-- name: 
-  max_plots: 26
+- name: blot1
+  max_plots: 36
   
   temporary_directory: T:\
   temporary2_directory: E:\
-  destination_directory: W:\
+  destination_directory: X:\
   
   size: 32
   bitfield: true
-  threads: 4
+  threads: 12
   buckets: 128
   memory_buffer: 5722
   max_concurrent: 4
-  max_concurrent_with_start_early: 4
+  max_concurrent_with_start_early: 5
   stagger_minutes: 90
   max_for_phase_1: 2
-  concurrency_start_early_phase: 4
-  concurrency_start_early_phase_delay: 30
+  concurrency_start_early_phase: 3
+  concurrency_start_early_phase_delay: 10
   temporary2_destination_sync: false
 
