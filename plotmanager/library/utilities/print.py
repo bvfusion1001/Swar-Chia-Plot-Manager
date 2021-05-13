@@ -123,6 +123,10 @@ def print_view(jobs, running_work, analysis, drives, next_log_check, view_settin
     print(f'Manager Status: {"Running" if manager_processes else "Stopped"}')
     print()
 
+    # ========== Brad Stuff ==========
+    # for pid, work in list(running_work.items()):
+    #     print(get_phase_sum(work))
+
     if view_settings.get('include_drive_info'):
         print(drive_data)
     if view_settings.get('include_cpu'):
@@ -138,3 +142,19 @@ def print_view(jobs, running_work, analysis, drives, next_log_check, view_settin
         print()
     print(f"Next log check at {next_log_check.strftime('%Y-%m-%d %H:%M:%S')}")
     print()
+
+def get_phase_sum(work):
+    phase_times = work.phase_times
+    phase_time_log = []
+    total_plot_time_delta = timedelta()
+    for i in range(1, 5):
+        if phase_times.get(i):
+            phase_time_log.append(phase_times.get(i))
+
+            (h, m) = phase_times.get(i).split(':')
+            d = timedelta(hours=int(h), minutes=int(m))
+            total_plot_time_delta += d
+
+    phase_times_joined = ' + '.join(phase_time_log)
+    total_plot_time = str(total_plot_time_delta)
+    return f'{phase_times_joined} = {total_plot_time[:total_plot_time.rindex(":")]}'

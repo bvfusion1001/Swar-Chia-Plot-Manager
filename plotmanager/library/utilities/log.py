@@ -7,6 +7,7 @@ import socket
 
 from plotmanager.library.utilities.notifications import send_notifications
 from plotmanager.library.utilities.print import pretty_print_time
+from datetime import datetime, timedelta
 
 
 def get_log_file_name(log_directory, job, datetime):
@@ -174,7 +175,7 @@ def check_log_progress(jobs, running_work, progress_settings, notification_setti
         work.phase_times = phase_times
         work.phase_dates = phase_dates
         work.current_phase = current_phase
-        work.progress = f'{progress:.2f}%'
+        work.progress = f'{progress:.3f}%'
 
         if psutil.pid_exists(pid) and 'renamed final file from ' not in data.lower():
             logging.info(f'PID still alive: {pid}')
@@ -192,10 +193,32 @@ def check_log_progress(jobs, running_work, progress_settings, notification_setti
             job.total_running -= 1
             job.total_completed += 1
 
+            phase_sum = get_phase_sum(work)
             send_notifications(
                 title='Plot Completed',
-                body=f'You completed a plot on {socket.gethostname()}!',
+                body=f'Plot completed on {socket.gethostname()}! -- {phase_sum}',
                 settings=notification_settings,
             )
             break
         del running_work[pid]
+
+def pretty_print_time(seconds, include_seconds=True):
+    total_minutes, second = divmod(seconds, 60)
+    hour, minute = divmod(total_minutes, 60)
+    return f"{hour:02}:{minute:02}{f':{second:02}' if include_seconds else ''}"
+
+def get_phase_sum(work):
+    phase_times = work.phase_times
+    phase_time_log = []
+    total_plot_time_delta = timedelta()
+    for i in range(1, 5):
+        if phase_times.get(i):
+            phase_time_log.append(phase_times.get(i))
+
+            (h, m) = phase_times.get(i).split(':')
+            d = timedelta(hours=int(h), minutes=int(m))
+            total_plot_time_delta += d
+
+    phase_times_joined = ' + '.join(phase_time_log)
+    total_plot_time = str(total_plot_time_delta)
+    return f'{phase_times_joined} = {total_plot_time[:total_plot_time.rindex(":")]}'
