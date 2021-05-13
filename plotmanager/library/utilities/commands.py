@@ -14,7 +14,21 @@ from plotmanager.library.utilities.log import analyze_log_dates, check_log_progr
 from plotmanager.library.utilities.notifications import send_notifications
 from plotmanager.library.utilities.print import print_view
 from plotmanager.library.utilities.processes import is_windows, get_manager_processes, get_running_plots, start_process
+from plotmanager.library.utilities.brad import format_config_info
 
+def brad_test():
+    notify = True
+    chia_location, log_directory, config_jobs, manager_check_interval, max_concurrent, progress_settings, \
+        notification_settings, debug_level, view_settings = get_config_info()
+
+    if not notify:
+        print(format_config_info(config_jobs))
+    else:
+        send_notifications(
+            title='Config info',
+            body=format_config_info(config_jobs),
+            settings=notification_settings,
+        )
 
 def start_manager():
     if get_manager_processes():
@@ -49,6 +63,11 @@ def start_manager():
     send_notifications(
         title='Plot manager started',
         body=f'Plot Manager has started on {socket.gethostname()}...',
+        settings=notification_settings,
+    )
+    send_notifications(
+        title='Config info',
+        body=format_config_info(jobs),
         settings=notification_settings,
     )
     print('Plot Manager has started...')
