@@ -199,7 +199,7 @@ def check_log_progress(jobs, running_work, progress_settings, notification_setti
             
             send_notifications(
                 title='Plot Completed',
-                body=f'({total_completed}/{max_plots}) Plot completed on {socket.gethostname()}! -- {phase_sum}',
+                body=f'({total_completed}/{max_plots}) Plot completed on {socket.gethostname()}! • {phase_sum}',
                 settings=notification_settings,
             )
             break
@@ -222,6 +222,6 @@ def get_phase_sum(work):
             d = timedelta(hours=int(h), minutes=int(m))
             total_plot_time_delta += d
 
-    phase_times_joined = ' + '.join(phase_time_log)
+    phase_times_joined = '/'.join(phase_time_log)
     total_plot_time = str(total_plot_time_delta)
     return f'{phase_times_joined} = {total_plot_time[:total_plot_time.rindex(":")]}'
