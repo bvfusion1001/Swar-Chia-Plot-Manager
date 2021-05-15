@@ -193,10 +193,13 @@ def check_log_progress(jobs, running_work, progress_settings, notification_setti
             job.total_running -= 1
             job.total_completed += 1
 
+            max_plots = job.max_plots
+            total_completed = job.total_completed
             phase_sum = get_phase_sum(work)
+            
             send_notifications(
                 title='Plot Completed',
-                body=f'Plot completed on {socket.gethostname()}! -- {phase_sum}',
+                body=f'({total_completed}/{max_plots}) Plot completed on {socket.gethostname()}! -- {phase_sum}',
                 settings=notification_settings,
             )
             break
