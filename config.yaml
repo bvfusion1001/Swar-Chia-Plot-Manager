@@ -49,12 +49,13 @@ global:
   max_concurrent: 5
 
 jobs:
-- name: blot1
-  max_plots: 36
-  
-  temporary_directory: T:\
-  temporary2_directory: E:\
-  destination_directory: X:\
+- name: bPlotDual
+  temporary_directory: E:\
+  temporary2_directory: F:\
+  destination_directory: 
+    - Y:\
+    - Z:\
+  max_plots: 72
   
   size: 32
   bitfield: true
