@@ -2,6 +2,11 @@
 ### Useful Links
 * [Raspberry Pi as Harvester](https://medium.com/geekculture/how-to-use-your-raspberry-pi-as-a-chia-harvester-66440c17d318).
 * [Farming on multiple systems](https://www.youtube.com/watch?v=QpgXr3aeU5g)
+* [Swar Setup Windows+Linux](https://pythonawesome.com/a-cross-platform-plot-manager-for-chia-plotting/)
+
+### Paths
+* Chia executable Windows: 
+* Chia executable Linux: `home/bharvest/chia-blockchain/venv/bin/chia`
 
 ## SSH - Windows to Linux
 1. Install SSH on Linux machine
