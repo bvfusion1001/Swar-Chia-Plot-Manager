@@ -1,11 +1,11 @@
-chia_location: C:\Users\b\AppData\Local\chia-blockchain\app-1.1.5\resources\app.asar.unpacked\daemon\chia.exe
+chia_location: /home/bharvest/chia-blockchain/venv/bin/chia
 
 manager:
   check_interval: 60
   log_level: INFO
 
 log:
-  folder_path: C:\Users\b\.chia\swar-chia-plot-manager-logs
+  folder_path: /home/bharvest/chia-logs-swar
 
 view:
   check_interval: 5
@@ -46,27 +46,24 @@ progress:
   phase4_weight: 3.88
 
 global:
-  max_concurrent: 5
+  max_concurrent: 1
 
 jobs:
-- name: bPlotDual
-  temporary_directory: E:\
-  temporary2_directory: F:\
-  destination_directory: 
-    - Y:\
-    - Z:\
-  max_plots: 72
+- name: bLinuxTest
+  temporary_directory: '/media/bharvest/Chia Temp1'
+  destination_directory: /media/bharvest/Chia5
+  max_plots: 1
   
   size: 32
   bitfield: true
-  threads: 12
+  threads: 8
   buckets: 128
   memory_buffer: 3400
-  max_concurrent: 5
-  max_concurrent_with_start_early: 5
-  stagger_minutes: 75
-  max_for_phase_1: 2
-  concurrency_start_early_phase: 3
+  max_concurrent: 1
+  max_concurrent_with_start_early: 1
+  stagger_minutes: 120
+  max_for_phase_1: 1
+  concurrency_start_early_phase: 1
   concurrency_start_early_phase_delay: 10
   temporary2_destination_sync: false
 
