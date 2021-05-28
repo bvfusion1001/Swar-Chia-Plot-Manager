@@ -5,7 +5,8 @@ manager:
   log_level: INFO
 
 log:
-  folder_path: C:\Users\b\.chia\swar-chia-plot-manager-logs
+  folder_path: C:\Users\b\.chia\mainnet\plotter
+  # Old Path:  C:\Users\b\.chia\swar-chia-plot-manager-logs
 
 view:
   check_interval: 5
@@ -49,24 +50,25 @@ global:
   max_concurrent: 5
 
 jobs:
-- name: bPlotDual
+- name: bPlotTriple
   temporary_directory: E:\
   temporary2_directory: F:\
   destination_directory: 
-    - Y:\
-    - Z:\
-  max_plots: 72
+    - I:\
+    - J:\
+    - K:\
+  max_plots: 26
   
   size: 32
   bitfield: true
   threads: 12
   buckets: 128
-  memory_buffer: 3400
-  max_concurrent: 5
+  memory_buffer: 5722
+  max_concurrent: 4
   max_concurrent_with_start_early: 5
-  stagger_minutes: 75
+  stagger_minutes: 85
   max_for_phase_1: 2
-  concurrency_start_early_phase: 3
+  concurrency_start_early_phase: 2
   concurrency_start_early_phase_delay: 10
   temporary2_destination_sync: false
 

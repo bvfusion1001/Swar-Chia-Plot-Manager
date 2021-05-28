@@ -32,9 +32,39 @@ chia plots add -d [path-to-plot-directory]
 chia plots add -d /media/bharvest/Chia1
 ```
 
+## Set logs to INFO
+
+## View logs
+```
+cat "C:\Users\b\.chia\mainnet\log\debug.log" | grep 192.168.86.28
+```
+
 ## Run the GUI
 ```
 cd ~/chia-blockchain/chia-blockchain-gui
 npm run electron &
 ```
 
+## PSChiaPlotter
+* [PSChiaPlotter](https://github.com/MrPig91/PSChiaPlotter)
+* [YouTube Video](https://www.youtube.com/watch?v=txUmNYhTfD4)
+```
+Get-ChiaPlottingStatistics
+```
+### Executiy Policy Error
+```
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser
+```
+### Usage
+```
+# List all
+Get-ChiaPlottingStatistic | sort Time_Started -Descending
+
+# Get recent plots
+Get-ChiaPlottingStatistic | sort Time_Started -Descending | select -First 20
+
+# Get Plot average
+Get-ChiaPlottingStatistic | measure -Average -Property phase_1_sec
+# Convert seconds to minutes
+[seconds] / 60
+```
