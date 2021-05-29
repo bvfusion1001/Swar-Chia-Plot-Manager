@@ -1,4 +1,4 @@
-chia_location: C:\Users\b\AppData\Local\chia-blockchain\app-1.1.5\resources\app.asar.unpacked\daemon\chia.exe
+chia_location: C:\Users\b\AppData\Local\chia-blockchain\app-1.1.6\resources\app.asar.unpacked\daemon\chia.exe
 
 manager:
   check_interval: 60
@@ -50,20 +50,19 @@ global:
   max_concurrent: 5
 
 jobs:
-- name: bPlotTriple
+- name: bPlotDouble
   temporary_directory: E:\
   temporary2_directory: F:\
   destination_directory: 
-    - I:\
-    - J:\
-    - K:\
+    - Y:\
+    - Z:\
   max_plots: 26
   
-  size: 32
+  size: 25
   bitfield: true
   threads: 12
   buckets: 128
-  memory_buffer: 5722
+  memory_buffer: 6000
   max_concurrent: 4
   max_concurrent_with_start_early: 5
   stagger_minutes: 85
