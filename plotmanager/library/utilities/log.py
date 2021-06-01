@@ -5,6 +5,7 @@ import psutil
 import re
 import socket
 
+from plotmanager.library.utilities.instrumentation import increment_plots_completed
 from plotmanager.library.utilities.notifications import send_notifications
 from plotmanager.library.utilities.print import pretty_print_time
 from datetime import datetime, timedelta
@@ -155,7 +156,8 @@ def get_progress(line_count, progress_settings):
     return progress
 
 
-def check_log_progress(jobs, running_work, progress_settings, notification_settings, view_settings):
+def check_log_progress(jobs, running_work, progress_settings, notification_settings, view_settings,
+                       instrumentation_settings):
     for pid, work in list(running_work.items()):
         logging.info(f'Checking log progress for PID: {pid}')
         if not work.log_file:
@@ -192,6 +194,7 @@ def check_log_progress(jobs, running_work, progress_settings, notification_setti
                 job.running_work.remove(pid)
             job.total_running -= 1
             job.total_completed += 1
+            increment_plots_completed(increment=1, job_name=job.name, instrumentation_settings=instrumentation_settings)
 
             max_plots = job.max_plots
             total_completed = job.total_completed
