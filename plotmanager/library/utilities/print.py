@@ -139,6 +139,12 @@ def print_view(jobs, running_work, analysis, drives, next_log_check, view_settin
     if view_settings.get('include_plot_stats'):
         print(f'Plots Completed Yesterday: {analysis["summary"].get(datetime.now().date() - timedelta(days=1), 0)}')
         print(f'Plots Completed Today: {analysis["summary"].get(datetime.now().date(), 0)}')
+        
+        # max_plots = jobs[0].max_plots
+        # total_completed = jobs[0].total_completed
+        # print(f'({total_completed}/{max_plots})')
+        # print(str(analysis['summary']))
+
         print()
     print(f"Next log check at {next_log_check.strftime('%Y-%m-%d %H:%M:%S')}")
     print()
