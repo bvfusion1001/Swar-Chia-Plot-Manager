@@ -75,7 +75,7 @@ def start_manager():
     )
     send_notifications(
         title='Config info',
-        body=format_config_info(jobs),
+        body=format_config_info(config_jobs),
         settings=notification_settings,
     )
     print('Plot Manager has started...')

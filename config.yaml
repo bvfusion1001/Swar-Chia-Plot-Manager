@@ -1,4 +1,4 @@
-chia_location: C:\Users\b\AppData\Local\chia-blockchain\app-1.1.6\resources\app.asar.unpacked\daemon\chia.exe
+chia_location: C:\Users\b\AppData\Local\chia-blockchain\app-1.1.7\resources\app.asar.unpacked\daemon\chia.exe
 
 manager:
   check_interval: 60
@@ -6,7 +6,6 @@ manager:
 
 log:
   folder_path: C:\Users\b\.chia\mainnet\plotter
-  # Old Path:  C:\Users\b\.chia\swar-chia-plot-manager-logs
 
 view:
   check_interval: 5
@@ -16,7 +15,6 @@ view:
   include_cpu: true
   include_ram: true
   include_plot_stats: true
-
 
 notifications:
   # DISCORD
@@ -36,6 +34,11 @@ notifications:
   twilio_from_phone: +1234657890
   twilio_to_phone: +1234657890
 
+instrumentation:
+  # This setting is here in case you wanted to enable instrumentation using Prometheus.
+  prometheus_enabled: false
+  prometheus_port: 9090
+
 progress:
   phase1_line_end: 801
   phase2_line_end: 834
@@ -48,9 +51,10 @@ progress:
 
 global:
   max_concurrent: 5
+  max_for_phase_1: 2
+  minimum_minutes_between_jobs: 5
 
 jobs:
-
 - name: bPlotDouble
   farmer_public_key: 89acc1edcdb1502946dbfd3fb146933d41c20ed235e3ce51ccdd3aece02048c23813d20e40a70fca21f268b968fa0ae0
   pool_public_key: b56714782950a549c67ed0aafa7c25923ac707f25c5b5ec958df2ffdc501d1d64d5c52261a304462dfd1a2e58473429f
@@ -60,17 +64,18 @@ jobs:
   destination_directory: 
     - Y:\
     - Z:\
-  max_plots: 19
+  max_plots: 72
   
-  size: 25
+  size: 32
   bitfield: true
   threads: 12
   buckets: 128
-  memory_buffer: 6000
+  memory_buffer: 3400
   max_concurrent: 4
   max_concurrent_with_start_early: 5
   stagger_minutes: 85
   max_for_phase_1: 2
+
   concurrency_start_early_phase: 2
   concurrency_start_early_phase_delay: 10
   temporary2_destination_sync: false
