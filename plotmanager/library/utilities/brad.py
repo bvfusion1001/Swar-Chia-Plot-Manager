@@ -18,7 +18,7 @@ def format_config_info(config_jobs):
     headers2 = ['MaxConc', 'MC SEarly', 'CSEPhase', 'CSEPDelay']
     values2 = [max_concurrent, max_concurrent_with_start_early, concurrency_start_early_phase, concurrency_start_early_phase_delay]
     pretty_config_table2 = pretty_print_table([headers2] + [values2])
-    return f'{pretty_config_table1}\n{pretty_config_table2}'
+    return f'```\n{pretty_config_table1}\n{pretty_config_table2}\n```'
 
 def pretty_print_table(rows):
     max_characters = [0 for cell in rows[0]]
@@ -30,7 +30,7 @@ def pretty_print_table(rows):
             max_characters[i] = length
 
     headers = "   ".join([cell.center(max_characters[i]) for i, cell in enumerate(rows[0])])
-    separator = '=' * ((sum(max_characters) + 3 * len(max_characters)) - 13)
+    separator = '=' * ((sum(max_characters) + 3 * len(max_characters)))
     console = [separator, headers, separator]
     for row in rows[1:]:
         console.append("   ".join([cell.ljust(max_characters[i]) for i, cell in enumerate(row)]))
