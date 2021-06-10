@@ -1,4 +1,11 @@
 # Brad's Notes
+
+### Paths
+* Chia.exe location: `C:\Users\b\AppData\Local\chia-blockchain\app-1.1.7\resources\app.asar.unpacked\daemon`
+* Python location: `C:\Users\b\AppData\Local\Programs\Python\Python39\`
+* Config: 
+* Debug: 
+
 ### Useful Links
 * [Raspberry Pi as Harvester](https://medium.com/geekculture/how-to-use-your-raspberry-pi-as-a-chia-harvester-66440c17d318).
 * [Farming on multiple systems](https://www.youtube.com/watch?v=QpgXr3aeU5g)

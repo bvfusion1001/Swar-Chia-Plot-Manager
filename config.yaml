@@ -19,7 +19,10 @@ view:
 notifications:
   # DISCORD
   notify_discord: true
-  discord_webhook_url: https://discord.com/api/webhooks/840625619956006964/XDAb7z2rOSCoUMUHI14rI_medt5sWLAtshD5PjNjRO_dEJW8Ns-dgectwqXK5RTLTnOe 
+  discord_webhook_url: https://discord.com/api/webhooks/851736549199446046/ptZlfYwNmChtJ9LECfg7ZRQ-NiE_qt7BU4iLuLD23x3K31f6qOWwdkweSf4o8otMgzTF
+  # chia-notifications1: https://discord.com/api/webhooks/840625619956006964/XDAb7z2rOSCoUMUHI14rI_medt5sWLAtshD5PjNjRO_dEJW8Ns-dgectwqXK5RTLTnOe
+  # chia-notifications2: https://discord.com/api/webhooks/851736549199446046/ptZlfYwNmChtJ9LECfg7ZRQ-NiE_qt7BU4iLuLD23x3K31f6qOWwdkweSf4o8otMgzTF
+
   # PLAY AUDIO SOUND
   notify_sound: false
   song: audio.mp3
